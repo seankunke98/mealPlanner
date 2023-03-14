@@ -1,5 +1,5 @@
 <template>
-  <div class="movie-container">
+  <div class="d-flex space-around flex-wrap">
     <recipe-card
       v-bind:recipe="recipe"
       v-for="recipe in $store.state.recipes"

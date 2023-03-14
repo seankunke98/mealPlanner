@@ -1,24 +1,24 @@
 <template>
   
-  <v-card class="mx-auto" width="400" height="500">
-      <v-card-title class="title" v-on:click.prevent="openDetails()">
+  <v-card class="card ma-4"  elevation="6" width="500" height="350">
+      <v-card-title class="title text-truncate text-center d-inline-block" v-on:click.prevent="openDetails()">
         {{ recipe.title }}
       </v-card-title>
-      <v-img v-bind:src="recipe.image" height="200" width="300"/>
-      <v-card-subtitle >Cook Time: {{ recipe.readyInMinutes }} minutes.</v-card-subtitle>
+      <v-img v-bind:src="recipe.image" class="recipe-image" height="200" width="300"/>
+      <v-card-subtitle class="rec-details">Cook Time: {{ recipe.readyInMinutes }} minutes.</v-card-subtitle>
       <v-container>
-        <v-row>
+        <v-row >
           <v-col cols="6">
-      <v-card-text>Dairy Free: <font-awesome-icon v-if="recipe.dairyFree" icon="fa-solid fa-check" /> <font-awesome-icon v-else icon="fa-solid fa-xmark" /></v-card-text>
+      <v-card-text class="text-center">Dairy Free: <font-awesome-icon v-if="recipe.dairyFree" icon="fa-solid fa-check" /> <font-awesome-icon v-else icon="fa-solid fa-xmark" /></v-card-text>
     </v-col>
     <v-col cols="6">
-      <v-card-text>Vegan: <font-awesome-icon v-if="recipe.vegan" icon="fa-solid fa-check" /> <font-awesome-icon v-else icon="fa-solid fa-xmark" /></v-card-text>
+      <v-card-text class="text-center">Vegan: <font-awesome-icon v-if="recipe.vegan" icon="fa-solid fa-check" /> <font-awesome-icon v-else icon="fa-solid fa-xmark" /></v-card-text>
     </v-col>
     <v-col cols="6">
-      <v-card-text>Vegetarian: <font-awesome-icon v-if="recipe.vegetarian" icon="fa-solid fa-check" /> <font-awesome-icon v-else icon="fa-solid fa-xmark" /></v-card-text>
+      <v-card-text class="text-center">Vegetarian: <font-awesome-icon v-if="recipe.vegetarian" icon="fa-solid fa-check" /> <font-awesome-icon v-else icon="fa-solid fa-xmark" /></v-card-text>
     </v-col>
     <v-col cols="6">
-      <v-card-text>Gluten Free: <font-awesome-icon v-if="recipe.glutenFree" icon="fa-solid fa-check" /> <font-awesome-icon v-else icon="fa-solid fa-xmark" /></v-card-text>
+      <v-card-text class="text-center">Gluten Free: <font-awesome-icon v-if="recipe.glutenFree" icon="fa-solid fa-check" /> <font-awesome-icon v-else icon="fa-solid fa-xmark" /></v-card-text>
     </v-col>
     </v-row>
     </v-container>
@@ -70,13 +70,27 @@ export default {
   font-family: "Allerta Stencil";
 }
 
-.title {
-  cursor: pointer
+.card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }
 
-.title:hover {
+.card:hover {
   color: blue
 }
 
+.recipe-image {
+  margin: auto;
+}
+
+.rec-details {
+  margin: auto;
+}
+
+.title {
+  margin-inline: 30px;
+}
 
 </style>
